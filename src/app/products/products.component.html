@@ -1,0 +1,20 @@
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let group of groups">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{ group }}
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list>
+                <mat-divider></mat-divider>
+                <mat-list-item *ngFor="let product of products">
+                        <img matListAvatar src="/images/128-128-7d724eef55c678bd635f35c6f8337fa3-burger.png" alt="...">
+                        <mat-icon mat-list-icon>folder</mat-icon>
+                        <button mat-icon-button>
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <p>{{ product }}</p>
+                </mat-list-item>
+              </mat-list>
+    </mat-expansion-panel>
+</mat-accordion>
