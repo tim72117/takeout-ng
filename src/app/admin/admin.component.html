@@ -1,0 +1,23 @@
+
+
+<div fxLayout="row" fxLayoutAlign="center start" style="margin: 10px 0 0 0">
+    <mat-list fxLayout="column" fxFlex="800px" class="mat-elevation-z0">
+        <ng-container *ngFor="let product of products">
+            <mat-list-item>
+                <p fxFlex="80">{{ product.title }}</p>
+                <p fxFlex="20">${{ product.price }}</p>
+                <button mat-button (click)="delete(product)">刪除</button>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+        </ng-container>
+        <mat-list-item style="margin-top: 50px">
+            <mat-form-field fxFlex="200px">
+                <input matInput [(ngModel)]="newProduct.title" placeholder="品名">
+            </mat-form-field>
+            <mat-form-field fxFlex="100px">
+                <input matInput [(ngModel)]="newProduct.price" type="number" placeholder="價格">
+            </mat-form-field>
+            <button mat-button style="margin-left: 20px" (click)="add()">新增</button>
+        </mat-list-item>
+    </mat-list>
+</div>
