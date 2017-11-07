@@ -12,7 +12,7 @@ export class AdminComponent implements OnInit {
     categories = [];
     newProduct = {title: '', price: 0};
     newCategory = {title: ''};
-    category = {loading: true};
+    category = {id: 0, loading: true};
 
     constructor(private http: Http) { }
 

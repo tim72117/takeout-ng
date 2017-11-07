@@ -1,3 +1,16 @@
-<p>
-  cart works!
-</p>
+<mat-toolbar color="primary">
+    <button mat-icon-button routerLink="/">
+        <mat-icon>navigate_before</mat-icon>
+    </button>
+</mat-toolbar>
+<mat-list style="margin: 10px">
+    <ng-container *ngFor="let product of products">
+        <mat-list-item>
+            <p fxFlex>{{ product.title }}</p>
+            <button mat-icon-button (click)="delete(product)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+    </ng-container>
+</mat-list>
