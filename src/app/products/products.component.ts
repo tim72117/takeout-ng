@@ -11,15 +11,14 @@ import 'rxjs/add/operator/toPromise';
 export class ProductsComponent implements OnInit {
 
     step = 0;
-    groups = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
-    products = [];
+    categories = [];
 
     constructor(private http: Http) { }
 
     ngOnInit() {
-        this.http.get('/api/products')
+        this.http.get('/api/categories')
         .toPromise()
-        .then((response) => { this.products = response.json().products })
+        .then((response) => { this.categories = response.json().categories })
     }
 
 }

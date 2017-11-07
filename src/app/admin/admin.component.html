@@ -1,7 +1,35 @@
 
 
 <div fxLayout="row" fxLayoutAlign="center start" style="margin: 10px 0 0 0">
-    <mat-list fxLayout="column" fxFlex="800px" class="mat-elevation-z0">
+    <mat-list fxLayout="column" fxFlex="500px" class="mat-elevation-z0">
+        <mat-list-item>
+            <mat-form-field fxFlex>
+                <input matInput [(ngModel)]="newCategory.title" placeholder="名稱">
+            </mat-form-field>
+            <button mat-button style="margin-left: 20px" (click)="addCategory()">新增</button>
+        </mat-list-item>
+        <h3 mat-subheader>類別</h3>
+        <ng-container *ngFor="let category of categories">
+            <mat-list-item>
+                <p fxFlex>{{ category.title }}</p>
+                <button mat-icon-button (click)="openCategory(category)"><mat-icon>editor</mat-icon></button>
+                <button mat-button (click)="deleteCategory(category)">刪除</button>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+        </ng-container>
+
+    </mat-list>
+    <mat-list fxLayout="column" fxFlex="800px" class="mat-elevation-z0" *ngIf="! category.loading">
+        <mat-list-item>
+            <mat-form-field fxFlex>
+                <input matInput [(ngModel)]="newProduct.title" placeholder="品名">
+            </mat-form-field>
+            <mat-form-field fxFlex="20">
+                <input matInput [(ngModel)]="newProduct.price" type="number" placeholder="價格">
+            </mat-form-field>
+            <button mat-button style="margin-left: 20px" (click)="addProduct()">新增</button>
+        </mat-list-item>
+        <h3 mat-subheader>{{ category.title }}</h3>
         <ng-container *ngFor="let product of products">
             <mat-list-item>
                 <p fxFlex="80">{{ product.title }}</p>
@@ -10,14 +38,5 @@
             </mat-list-item>
             <mat-divider></mat-divider>
         </ng-container>
-        <mat-list-item style="margin-top: 50px">
-            <mat-form-field fxFlex="200px">
-                <input matInput [(ngModel)]="newProduct.title" placeholder="品名">
-            </mat-form-field>
-            <mat-form-field fxFlex="100px">
-                <input matInput [(ngModel)]="newProduct.price" type="number" placeholder="價格">
-            </mat-form-field>
-            <button mat-button style="margin-left: 20px" (click)="add()">新增</button>
-        </mat-list-item>
     </mat-list>
 </div>

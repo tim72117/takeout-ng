@@ -12,19 +12,22 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { ProductsComponent } from './products/products.component';
 import { AdminComponent } from './admin/admin.component';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
-    AdminComponent
+    AdminComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpModule,
     FormsModule,
+    MatCardModule,
     MatInputModule,
     MatToolbarModule,
     MatButtonModule,
@@ -37,6 +40,10 @@ import { AdminComponent } from './admin/admin.component';
       {
           path: '',
           component: ProductsComponent
+      },
+      {
+        path: 'cart',
+        component: CartComponent
       },
       {
         path: 'admin',

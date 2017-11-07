@@ -1,24 +1,48 @@
+<mat-toolbar color="primary">
+    <span fxFlex></span>
+    <button mat-icon-button routerLink="/cart">
+            <mat-icon>shopping_cart</mat-icon>
+        </button>
+</mat-toolbar>
 <div style="margin: 10px 10px">
 <mat-accordion>
-    <mat-expansion-panel *ngFor="let group of groups">
+    <mat-expansion-panel *ngFor="let category of categories">
         <mat-expansion-panel-header>
             <mat-panel-title>
-                {{ group }}
+                {{ category.title }}
             </mat-panel-title>
             <mat-panel-description>
-                    Type your name and age
-                  </mat-panel-description>
+                   0
+            </mat-panel-description>
         </mat-expansion-panel-header>
-        <mat-list>
+            <!-- <mat-list>
                 <mat-divider></mat-divider>
-                <mat-list-item *ngFor="let product of products">
+                <mat-list-item *ngFor="let product of category.products">
                         <img matListAvatar src="/images/128-128-7d724eef55c678bd635f35c6f8337fa3-burger.png" alt="...">
                         <button mat-icon-button>
                                 <mat-icon>edit</mat-icon>
                             </button>
                             <p>{{ product.title }}</p>
                 </mat-list-item>
-              </mat-list>
+            </mat-list> -->
+
+        <mat-card *ngFor="let product of category.products">
+                <img mat-card-sm-image src="https://cdn2.ettoday.net/images/2069/d2069212.jpg" alt="...">
+            <mat-card-header>
+                <div mat-card-avatar src="images/128-128-7d724eef55c678bd635f35c6f8337fa3-burger.png"></div>
+                <mat-card-title>{{ category.title }}</mat-card-title>
+                <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content>
+            </mat-card-content>
+            <mat-card-actions>
+                <mat-form-field fxFlex>
+                        <input matInput type="number" placeholder="價格">
+                </mat-form-field>
+                <button mat-button>加入購物車</button>
+            </mat-card-actions>
+        </mat-card>
     </mat-expansion-panel>
 </mat-accordion>
 </div>
