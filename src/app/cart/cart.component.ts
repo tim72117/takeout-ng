@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 
 @Component({
     selector: 'app-cart',
@@ -8,10 +8,15 @@ import { Http } from '@angular/http';
 })
 export class CartComponent implements OnInit {
     products = [];
+    headers;
     constructor(private http: Http) { }
 
     ngOnInit() {
-        this.http.get('/api/cart/products')
+
+        this.headers = new Headers({
+            "Authorization": 'Bearer ' + localStorage.getItem('token')
+        });
+        this.http.get('/api/cart/products', {headers: this.headers})
         .toPromise()
         .then((response) => { this.products = response.json().products });
     }
@@ -24,6 +29,12 @@ export class CartComponent implements OnInit {
 
     delete(prodcut) {
         this.http.delete('/api/cart/products/' + prodcut.id)
+        .toPromise()
+        .then((response) => { this.products.splice(this.products.indexOf(prodcut), 1); })
+    }
+
+    submit() {
+        this.http.delete('/api/cart/submit')
         .toPromise()
         .then((response) => { this.products.splice(this.products.indexOf(prodcut), 1); })
     }

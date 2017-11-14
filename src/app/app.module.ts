@@ -7,13 +7,17 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
-import { MatInputModule, MatCardModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatDialogModule, MatListModule, MatIconModule, MatExpansionModule, MatProgressBarModule, MatSelectModule } from '@angular/material';
+import { MatInputModule, MatCardModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatDialogModule, MatListModule, MatIconModule, MatExpansionModule, MatProgressBarModule,
+  MatSelectModule,
+  MatSnackBarModule
+} from '@angular/material';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { ProductsComponent } from './products/products.component';
 import { AdminComponent } from './admin/admin.component';
 import { CartComponent } from './cart/cart.component';
 import { DialogOverviewExampleDialog } from './products/products.component';
+import { OrderComponent } from './order/order.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,8 @@ import { DialogOverviewExampleDialog } from './products/products.component';
     ProductsComponent,
     AdminComponent,
     CartComponent,
-    DialogOverviewExampleDialog
+    DialogOverviewExampleDialog,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +44,7 @@ import { DialogOverviewExampleDialog } from './products/products.component';
     MatExpansionModule,
     FlexLayoutModule,
     MatSelectModule,
+    MatSnackBarModule,
     RouterModule.forRoot([
       {
           path: '',
@@ -51,6 +57,10 @@ import { DialogOverviewExampleDialog } from './products/products.component';
       {
         path: 'admin',
         component: AdminComponent
+      },
+      {
+        path: 'order',
+        component: OrderComponent
       }
     ])
   ],

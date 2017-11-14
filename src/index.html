@@ -6,10 +6,24 @@
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0077B5">
+  <meta name="csrf-token" content="iMAu9DMPq3OFVt0L5sFcydGsL4zFe2Xmlba0NHKV">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="manifest" href="/app/manifest.json">
+  <script src="http://localhost:6001/socket.io/socket.io.js"></script>
 </head>
 <body>
   <app-root></app-root>
 </body>
 </html>
+
+<form action="oauth/token" method="POST">
+  <input type="text" name="grant_type" value="password" />
+  <input type="text" name="client_id" value="2" />
+  <input type="text" name="redirect_uri" value="http://localhost" />
+  <input type="text" name="client_secret" value="pYZK1ghggFJXINsasIocM04as44BUhZDHhu1tpym" />
+  <input type="text" name="username" value="tim72117@gmail.com" />
+  <input type="text" name="password" value="superd@150201" />
+  <button type="submit">送出</button>
+</form>
